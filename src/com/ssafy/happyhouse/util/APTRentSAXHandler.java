@@ -25,7 +25,7 @@ public class APTRentSAXHandler extends DefaultHandler {
 			                           , String qName, Attributes att ){
 		if(qName.equals("item")){
 			house = new HouseDeal(HouseSaxParser.no++);
-			house.setType(HouseDeal.HOUSE_RENT);
+			house.setType(HouseDeal.APT_RENT);
 			houses.add(house);
 		}
 	}
