@@ -39,7 +39,7 @@ public class HouseSAXHandler extends DefaultHandler {
 			house.setAptName(temp.trim());
 		}else if(qName.equals("법정동")) { 
 			house.setDong(temp.trim());
-		}else if(qName.equals("img")) { 
+		}else if(qName.equals("img")) {
 			house.setImg(temp);
 		}else if(qName.equals("건축년도")) { 
 			house.setBuildYear(Integer.parseInt(temp));
