@@ -7,10 +7,28 @@ public class HouseDeal {
 	public static String  HOUSE_DEAL = "주택 매매";
 	public static String  HOUSE_RENT = "주택 전월세";
 	
+	
+	private String touristSpot;
+	public String getTouristSpot() {
+		return touristSpot;
+	}
+	public void setTouristSpot(String touristSpot) {
+		this.touristSpot = touristSpot;
+	}
+
 	/**거래 정보를 식별할 번호*/
 	private int    no;
 	/**법정 동명 */
 	private String dong;
+	
+	private String dong2;
+	public String getDong2() {
+		return dong2;
+	}
+	public void setDong2(String dong2) {
+		this.dong2 = dong2;
+	}
+
 	/**아파트 이름 */
 	private String aptName;
 	/**법정 동코드 */
@@ -163,7 +181,7 @@ public class HouseDeal {
 		return "HouseDeal [no=" + no + ", dong=" + dong + ", AptName=" + aptName + ", code=" + code + ", dealAmount="
 				+ dealAmount + ", buildYear=" + buildYear + ", dealYear=" + dealYear + ", dealMonth=" + dealMonth
 				+ ", dealDay=" + dealDay + ", area=" + area + ", floor=" + floor + ", lat=" + lat + ", lng=" + lng
-				+ ", jibun=" + jibun + ", type=" + type + ", rentMoney=" + rentMoney + ", img=" + img + "]";
+				+ ", jibun=" + jibun + ", type=" + type + ", rentMoney=" + rentMoney + ", img=" + img + "]" + dong2 + touristSpot;
 	}
 	
 }
