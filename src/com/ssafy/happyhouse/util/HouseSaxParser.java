@@ -18,6 +18,7 @@ public class HouseSaxParser {
 	private Map<String, List<HouseDeal>> deals;
 	private Map<String, HouseInfo> houseInfo;
 	private int size;
+	private List<HouseDeal> t;
 	/**
 	 * 아파트 거래 정보를 식별하기 위한 번호로 차후 DB에서는 primary key로 대체하지만 
 	 * 현재 버전에서는 0번부터 순차 부여한다. 
@@ -39,6 +40,7 @@ public class HouseSaxParser {
 		String aptRentFilePath = "res/AptRentHistory.xml";
 		String houseDealFilePath = "res/HouseDealHistory.xml";
 		String houseRentFilePath = "res/HouseRentHistory.xml";
+		String touristSpotFilePath = "res/jongrodata.xml";
 		
 		
 		try{
@@ -63,6 +65,10 @@ public class HouseSaxParser {
 			parser.parse(houseRentFilePath, houseRentHandler);
 			List<HouseDeal> houseRents = houseRentHandler.getHouses();
 			
+			TouristSpotSAXHandler touristspotHandler = new TouristSpotSAXHandler();
+			parser.parse(touristSpotFilePath, touristspotHandler);
+			t = touristspotHandler.getHouses();
+			
 			size = aptDeals.size() + houseDeals.size() + aptRents.size() + houseRents.size();
 			
 			deals = new HashMap<String, List<HouseDeal>>();
@@ -71,6 +77,7 @@ public class HouseSaxParser {
 			deals.put(HouseDeal.APT_RENT, aptRents);
 			deals.put(HouseDeal.HOUSE_DEAL, houseDeals);
 			deals.put(HouseDeal.HOUSE_RENT, houseRents);
+			
 			
 		}catch(Exception e){
 			e.printStackTrace();
@@ -90,6 +97,9 @@ public class HouseSaxParser {
 		return size;
 	}
 
+	public List<HouseDeal> getTouristSpot(){
+		return t;
+	}
 	public void setSize(int size) {
 		this.size = size;
 	}
